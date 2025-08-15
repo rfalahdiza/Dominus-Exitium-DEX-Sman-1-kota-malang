@@ -1,0 +1,224 @@
+/* Base Styles */
+body {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    color: #374151; /* Default text color, gray-800 */
+}
+
+/* Navigation Bar Transitions and Hover Effects */
+nav {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+nav a {
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #DC2626; /* Red-600 */
+}
+
+.nav-link:hover {
+    color: #dc2626; /* red-600 */
+    background-color: #f3f4f6; /* gray-100 */
+}
+
+/* Header Buttons */
+.header-btn {
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-out;
+}
+
+.header-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Flexbox and Scroll Snap for Banner */
+.flex-none {
+    flex: none;
+}
+
+.snap-x {
+    scroll-snap-type: x mandatory;
+}
+
+.snap-start {
+    scroll-snap-align: start;
+}
+
+/* Hide scrollbar but keep functionality for horizontal scroll */
+.flex::-webkit-scrollbar {
+    display: none;
+}
+
+.flex {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.flex img {
+    scroll-snap-align: start;
+}
+
+/* Dropdown Menu Items */
+.w-60 {
+    width: 15rem; /* Tailwind w-60 = 240px */
+    min-width: 12rem; /* Ensure minimum width for content */
+    height: auto;
+}
+
+/* Dropdown Menu Styling */
+/* Main dropdown */
+.group:hover > div.group-hover\:block {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out forwards; /* Use forwards to keep final state */
+    opacity: 1; /* Ensure opacity is 1 after animation */
+ display: block;
+    opacity: 1;
+    pointer-events: auto;
+\}
+
+/* Nested dropdown */
+.group\/sub:hover > div.group-hover\/sub\:block {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out forwards; /* Use forwards to keep final state */
+    opacity: 1; /* Ensure opacity is 1 after animation */
+ display: block;
+    opacity: 1;
+    pointer-events: auto;
+\}
+
+/* Hide dropdown by default */
+.group-hover\:block,
+.group-hover\/sub\:block {
+    display: none;
+    opacity: 0; /* Start with opacity 0 for fade-in effect */
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+/* New style for main dropdown positioning */
+.main-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px); /* appear clearly below the header/nav */
+    left: 0;               /* align to the left edge of the trigger */
+    transform: none;       /* avoid interfering with positioning */
+    min-width: 15rem;
+}
+
+/* Fix for nested dropdown positioning */
+/* This targets the absolute positioned div directly inside group/sub.relative */
+.group\/sub.relative > .absolute {
+    top: -8px; /* Adjust as needed for alignment */
+}
+
+/* Keyframes for fadeIn */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Specific Styles */
+section {
+    padding-top: 4rem; /* py-16 */
+    padding-bottom: 4rem; /* py-16 */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+    section {
+        padding-top: 5rem; /* md:py-20 */
+        padding-bottom: 5rem; /* md:py-20 */
+    }
+}
+
+/* General Card Hover Effect */
+.shadow-md:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Larger shadow on hover */
+}
+
+/* Partner Logos Grayscale Effect */
+.filter.grayscale {
+    filter: grayscale(100%);
+}
+
+.filter.grayscale:hover {
+    filter: grayscale(0%);
+}
+
+
+/* Ensure dropdown text remains dark even when navbar toggles to text-white */
+.main-dropdown-menu,
+.main-dropdown-menu a { color: #1f2937; } /* gray-800 */
+
+/* Allow interactions when the dropdown is visible */
+.main-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px); /* appear clearly below the header/nav */
+    left: 0;               /* align to the left edge of the trigger */
+    transform: none;       /* avoid interfering with positioning */
+    min-width: 15rem;
+}
+
+/* Ensure parent for dropdown provides positioning context */
+.group { position: relative; }
+
+
+/* Like a notification dropdown below trigger */
+  left: 0;                 /* Align to the trigger's left */
+  color: #1f2937;          /* gray-800 text */
+}
+
+/* Small arrow pointing to the trigger */
+.megamenu-arrow {
+  position: absolute;
+  top: -8px;
+  left: 24px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  transform: rotate(45deg);
+  box-shadow: -1px -1px 0 0 rgba(0,0,0,0.05);
+}
+
+/* Show/Hide helpers */
+.megamenu-panel.hidden { display: none; }
+.megamenu-panel.open { display: block; }
+
+/* Responsive: full width on small screens */
+@media (max-width: 768px) {
+  .megamenu-panel {
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw - 2rem);
+  }
+  .megamenu-arrow { left: 50%; transform: translateX(-50%) rotate(45deg); }
+}
+
+
+/* === Megamenu Styles (notification-like, detached from header) === */
+.megamenu-panel {
+  position: fixed;           /* detach from header */
+  z-index: 9999;             /* always on top */
+  display: none;             /* hidden by default */
+  color: #1f2937;            /* gray-800 text */
+}
+
+.megamenu-panel.open { display: block; }
+.megamenu-panel.hidden { display: none; }
+
+/* Small arrow pointing to trigger */
+.megamenu-arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  transform: rotate(45deg);
+  box-shadow: -1px -1px 0 0 rgba(0,0,0,0.05);
+}
+
+/* Panel look */
+.megamenu-panel { border-radius: 0.75rem; box-shadow: 0 20px 30px -10px rgba(0,0,0,.2); }
+
+/* Responsive: cap width */
+@media (max-width: 768px) {
+  .megamenu-panel { width: calc(100vw - 2rem) !important; left: 1rem !important; }
+}
