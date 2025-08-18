@@ -1,17 +1,51 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Navbar Scroll Effect
     const mainNav = document.getElementById('mainNav');
-    if (mainNav) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                mainNav.classList.add('bg-red-600', 'text-white', 'shadow-lg');
-                mainNav.classList.remove('bg-white/80', 'text-gray-900', 'shadow-md');
+    const header = document.querySelector('header'); // Dapatkan elemen header
+    let headerHeight = header ? header.offsetHeight : 0; // Tinggi awal header
+
+    // Update headerHeight on resize to ensure correct calculation
+    window.addEventListener('resize', () => {
+        headerHeight = header ? header.offsetHeight : 0;
+        // Re-run scroll check in case resize changes scroll position relative to header
+        handleScroll();
+    });
+
+    function handleScroll() {
+        if (mainNav) {
+            // Jika scrollY lebih besar dari tinggi header, nav akan menempel di atas
+            // dan berubah warna/shadow
+            if (window.scrollY > headerHeight - mainNav.offsetHeight) { // Kurangi tinggi nav agar transisi pas
+                mainNav.classList.add('bg-blue-600', 'text-white', 'shadow-lg', 'fixed-top-nav'); // Tambahkan class baru
+                mainNav.classList.remove('bg-white/80', 'text-gray-900', 'shadow-md', 'absolute'); // Hapus absolute
+                // Pastikan logo dan teks sekolah juga berubah warna jika perlu
+                const logoText = mainNav.querySelector('.bg-clip-text');
+                if (logoText) {
+                    logoText.classList.remove('from-blue-900', 'to-blue-600');
+                    logoText.classList.add('from-white', 'to-gray-200'); // Contoh perubahan warna teks logo
+                }
+                mainNav.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('text-gray-900', 'hover:text-red-600', 'hover:bg-gray-100');
+                    link.classList.add('text-white', 'hover:text-yellow-300', 'hover:bg-blue-700'); // Contoh perubahan warna link
+                });
             } else {
-                mainNav.classList.remove('bg-red-600', 'text-white', 'shadow-lg');
-                mainNav.classList.add('bg-white/80', 'text-gray-900', 'shadow-md');
+                // Jika scrollY masih di dalam header, nav kembali ke posisi awal (absolute di dalam header)
+                mainNav.classList.remove('bg-blue-600', 'text-white', 'shadow-lg', 'fixed-top-nav');
+                mainNav.classList.add('bg-white/80', 'text-gray-900', 'shadow-md', 'absolute');
+                const logoText = mainNav.querySelector('.bg-clip-text');
+                if (logoText) {
+                    logoText.classList.remove('from-white', 'to-gray-200');
+                    logoText.classList.add('from-blue-900', 'to-blue-600');
+                }
+                mainNav.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('text-white', 'hover:text-yellow-300', 'hover:bg-blue-700');
+                    link.classList.add('text-gray-900', 'hover:text-red-600', 'hover:bg-gray-100');
+                });
             }
-        });
+        }
     }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Panggil sekali saat DOMContentLoaded untuk mengatur posisi awal
 
     // 2. Auto-sliding Banner (Hero Slider)
     const heroSlider = document.getElementById('heroSlider');
@@ -19,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const slides = heroSlider.children;
         let currentSlide = 0;
         const slideIntervalTime = 3000; // 3 seconds
+        let slideInterval; // Declare slideInterval here
 
         function nextSlide() {
             currentSlide = (currentSlide + 1) % slides.length;
@@ -29,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Auto-advance every 3 seconds
-        setInterval(nextSlide, slideIntervalTime);
+        slideInterval = setInterval(nextSlide, slideIntervalTime); // Assign to slideInterval
 
         // Optional: Pause on hover
         heroSlider.addEventListener('mouseenter', () => clearInterval(slideInterval));
@@ -38,14 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 3. Smooth Scroll for Anchor Links
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    for (const link of anchorLinks) {
+    anchorLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor jump
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-                
-            if (targetElement) {
-                // Calculate offset for fixed header if needed
+            // Pastikan bukan hanya '#' dan elemen target ada
+            if (targetId && targetId !== '#' && document.querySelector(targetId)) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
                 const headerOffset = mainNav ? mainNav.offsetHeight : 0;
                 const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                 const offsetPosition = elementPosition - headerOffset - 20; // Add extra padding
@@ -56,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-    }
+    });
 
     // 4. Search Functionality
     const searchForm = document.querySelector('form[role="search"]'); // Target by role for better specificity
@@ -96,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // this.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
         });
     }
-    
+
     // 7. Megamenu Toggle (behaves like a notification dropdown)
     const megaTrigger = document.getElementById('megamenu-trigger');
     const megaPanel = document.getElementById('megamenu-panel');
@@ -156,5 +190,72 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMega(); });
     }
 
+    // 8. Megamenu Toggle for "Kegiatan"
+    const megaKegiatanTrigger = document.getElementById('megamenu-kegiatan-trigger');
+    const megaKegiatanPanel = document.getElementById('megamenu-kegiatan-panel');
+    if (megaKegiatanTrigger && megaKegiatanPanel) {
+        function setKegiatanPosition() {
+            const rect = megaKegiatanTrigger.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const pageX = rect.left;
+            // Hapus atau komentari baris ini agar lebar diatur oleh CSS (width: auto)
+            // const desiredLeft = Math.min(pageX, Math.max(8, viewportWidth - megaKegiatanPanel.offsetWidth - 8));
+            // const top = rect.bottom + 8; // 8px gap like notification
+            // megaKegiatanPanel.style.left = desiredLeft + 'px';
+            // megaKegiatanPanel.style.top = top + 'px';
 
+            // Biarkan posisi kiri dan atas dihitung secara dinamis tanpa memaksakan lebar
+            const panelWidth = megaKegiatanPanel.offsetWidth; // Dapatkan lebar panel setelah diatur oleh CSS
+            const desiredLeft = Math.min(pageX, Math.max(8, viewportWidth - panelWidth - 8));
+            const top = rect.bottom + 8; // 8px gap like notification
+            megaKegiatanPanel.style.left = desiredLeft + 'px';
+            megaKegiatanPanel.style.top = top + 'px';
+
+
+            // place arrow near trigger's left + 24px, but keep inside panel
+            const arrow = megaKegiatanPanel.querySelector('.megamenu-arrow');
+            if (arrow) {
+                const triggerCenter = rect.left + rect.width/2;
+                const panelLeft = desiredLeft;
+                let arrowLeft = triggerCenter - panelLeft - 6; // center arrow (minus half arrow size)
+                arrowLeft = Math.max(12, Math.min(arrowLeft, megaKegiatanPanel.offsetWidth - 24));
+                arrow.style.left = arrowLeft + 'px';
+                arrow.style.top = '-6px';
+            }
+        }
+        function closeMegaKegiatan() {
+            megaKegiatanPanel.classList.add('hidden');
+            megaKegiatanPanel.classList.remove('open');
+            megaKegiatanTrigger.setAttribute('aria-expanded', 'false');
+        }
+        function openMegaKegiatan() {
+            // Hapus atau komentari bagian ini agar lebar tidak dipaksa oleh JS
+            // if (!megaKegiatanPanel.style.width) {
+            //     megaKegiatanPanel.style.width = 'min(64rem, 90vw)'; // max-w-4xl approx
+            // }
+            megaKegiatanPanel.classList.remove('hidden');
+            megaKegiatanPanel.classList.add('open');
+            setKegiatanPosition();
+            megaKegiatanTrigger.setAttribute('aria-expanded', 'true');
+        }
+        megaKegiatanTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (megaKegiatanPanel.classList.contains('hidden')) {
+                openMegaKegiatan();
+            } else {
+                closeMegaKegiatan();
+            }
+        });
+        // Reposition on resize/scroll
+        window.addEventListener('resize', () => megaKegiatanPanel.classList.contains('open') && setKegiatanPosition());
+        window.addEventListener('scroll', () => megaKegiatanPanel.classList.contains('open') ? setKegiatanPosition() : null, {"passive": true});
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!megaKegiatanPanel.contains(e.target) && e.target !== megaKegiatanTrigger) {
+                closeMegaKegiatan();
+            }
+        });
+        // Close on ESC
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMegaKegiatan(); });
+    }
 });

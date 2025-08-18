@@ -11,48 +11,17 @@
     <link href="favicon.ico" rel="icon" type="image/x-icon"/>
 </head>
 <body class="font-poppins bg-gray-100 text-gray-800">
-    <!-- Header with Sliding Banner and Overlay Content -->
-    <header class="relative h-screen overflow-hidden">
-        <div class="banner-slider flex overflow-x-auto snap-x snap-mandatory h-full" id="heroSlider">
-            <div class="flex-none w-full h-full snap-start relative">
-                <img alt="Gedung Sekolah SMAN 1 Kota Malang" class="w-full h-full object-cover" src="assets/img/school1.jpg"/>
-                <div class="absolute inset-0 bg-gray-800/50 backdrop-blur-sm"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-            </div>
-            <div class="flex-none w-full h-full snap-start relative">
-                <img alt="Kegiatan Belajar Mengajar di SMAN 1 Kota Malang" class="w-full h-full object-cover" src="assets/img/school2.jpg"/>
-                <div class="absolute inset-0 bg-gray-800/50 backdrop-blur-sm"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-            </div>
-            <div class="flex-none w-full h-full snap-start relative">
-                <img alt="Ekstrakurikuler Siswa SMAN 1 Kota Malang" class="w-full h-full object-cover" src="assets/img/school3.jpg"/>
-                <div class="absolute inset-0 bg-gray-800/50 backdrop-blur-sm"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-            </div>
-        </div>
-        <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-10">
-            <div class="mb-8 bg-gray-900/30 backdrop-blur-sm p-8 rounded-lg max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Selamat Datang di SMAN 1 Kota Malang</h1>
-                <p class="text-lg md:text-2xl text-white mb-8">Mewujudkan Generasi Unggul dan Berkarakter</p>
-                <div class="flex flex-wrap gap-4 justify-center">
-                    <a class="header-btn bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="#profil">Profil Sekolah</a>
-                    <a class="header-btn bg-yellow-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-yellow-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75" href="#berita">Berita Terbaru</a>
-                    <a class="header-btn bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75" href="#ekskul">Ekskul Unggulan</a>
-                </div>
-            </div>
-        </div>
-    </header>
     <!-- Navigation -->
-    <nav class="sticky top-0 bg-white/80 backdrop-blur-sm shadow-md z-50 transition-all duration-300" id="mainNav">
+    <nav class="absolute top-0 w-full bg-white/80 backdrop-blur-sm shadow-md z-50 transition-all duration-300" id="mainNav">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
                 <a aria-label="Beranda SMAN 1 Kota Malang" class="flex items-center" href="#">
                     <img alt="Logo Mitreka Satata" class="h-10 mr-2" src="assets/img/logo.png"/>
-                    <span class="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">SMAN 1 Kota Malang</span>
+                    <span class="text-xl md:text-2xl font-francois one bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">SMAN 1 Kota Malang</span>
                 </a>
             </div>
             <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
-                <!-- Pastikan elemen induk dropdown memiliki posisi relative -->
+                <!-- About Us Dropdown (Megamenu) -->
                 <div class="group relative">
                     <button aria-controls="megamenu-panel" aria-expanded="false" aria-haspopup="true" class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 flex items-center focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" id="megamenu-trigger" type="button">
                         Tentang Kami
@@ -72,15 +41,6 @@
                                     <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="arti-lambang.html">Arti Garis dan Warna Lambang</a></li>
                                     <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="sejarah-singkat.html">Sejarah SMAN 1 Kota Malang</a></li>
                                     <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="mars-mitreka-satata.html">Mars Mitreka Satata</a></li>
-                                </ul>
-                            </div>
-                            <div class="min-w-0">
-                                <h4 class="text-base font-semibold text-gray-900 mb-3">Manajemen</h4>
-                                <ul class="space-y-2">
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#kurikulum">Kurikulum</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#kesiswaan">Kesiswaan</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#sarana-prasarana">Sarana dan Prasarana</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#humas">Humas</a></li>
                                 </ul>
                             </div>
                             <div class="min-w-0">
@@ -105,19 +65,36 @@
                                     <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#peraturan-akademik">Peraturan Akademik</a></li>
                                 </ul>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="#berita">Berita</a>
+            <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
+                <!-- Kegiatan Dropdown (Megamenu) - UBAH ID DAN KONTEN -->
+                <div class="group relative">
+                    <button aria-controls="megamenu-kegiatan-panel" aria-expanded="false" aria-haspopup="true" class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 flex items-center focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" id="megamenu-kegiatan-trigger" type="button">
+                        Kegiatan
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </button>
+                    <!-- UBAH KELAS max-w-4xl MENJADI max-w-xs atau max-w-sm, atau hapus untuk lebar otomatis -->
+                    <div class="megamenu-panel hidden absolute mt-2 w-full max-w-xs bg-white rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 z-[60]" id="megamenu-kegiatan-panel">
+                        <div class="megamenu-arrow"></div>
+                        <!-- UBAH grid-cols-1 md:grid-cols-2 MENJADI grid-cols-1 -->
+                        <div class="grid grid-cols-1 gap-6 p-6 md:p-8 text-gray-800">
                             <div class="min-w-0">
-                                <h4 class="text-base font-semibold text-gray-900 mb-3">Perpustakaan</h4>
+                                <h4 class="text-base font-semibold text-gray-900 mb-3">Program & Acara</h4>
                                 <ul class="space-y-2">
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#mitreka-baca">Mitreka Baca</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#ekskul">Ekstrakurikuler</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#event">Event</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#">Agenda Tahunan</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="#berita">Berita</a>
-                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="#ekskul">Ekstrakurikuler</a>
-                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="#jumlah">Anggota</a>
-                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="#galeri">Galeri</a>
+                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="#kalender">Kalender</a>
             </div>
             <div class="hidden md:block">
                 <!-- Search Form -->
@@ -131,15 +108,46 @@
                     </button>
                 </form>
             </div>
-            <button aria-label="Buka Menu Navigasi" class="md:hidden text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 rounded-md p-1">
+            <button aria-label="Buka Menu Navigasi" class="md:hidden text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 rounded-md p-1">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                 </svg>
             </button>
         </div>
     </nav>
-    <main>
-        <!-- Profil Sekolah -->
+
+    <!-- Header with Sliding Banner and Overlay Content -->
+    <header class="relative h-screen overflow-hidden">
+        <div class="banner-slider flex overflow-x-auto snap-x snap-mandatory h-full" id="heroSlider">
+            <div class="flex-none w-full h-full snap-start relative">
+                <img alt="Gedung Sekolah SMAN 1 Kota Malang" class="w-full h-full object-cover" src="assets/img/school1.jpg"/>
+                <div class="absolute inset-0 bg-gray-800/50 backdrop-blur-xl"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+            </div>
+            <div class="flex-none w-full h-full snap-start relative">
+                <img alt="Kegiatan Belajar Mengajar di SMAN 1 Kota Malang" class="w-full h-full object-cover" src="assets/img/school2.jpg"/>
+                <div class="absolute inset-0 bg-gray-800/50 backdrop-blur-xl"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+            </div>
+            <div class="flex-none w-full h-full snap-start relative">
+                <img alt="Ekstrakurikuler Siswa SMAN 1 Kota Malang" class="w-full h-full object-cover" src="assets/img/school3.jpg"/>
+                <div class="absolute inset-0 bg-gray-800/50 backdrop-blur-xl"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+            </div>
+        </div>
+        <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-10">
+            <div class="mb-8 bg-gray-900/30 backdrop-blur-sm p-8 rounded-lg max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold font-rem text-white mb-4 leading-tight">Selamat Datang di SMAN 1 Kota Malang</h1>
+                <p class="text-lg md:text-2xl text-white mb-8">Mewujudkan Generasi Unggul dan Berkarakter</p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <!-- Header buttons can be added here if needed -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-16"> <!-- Add padding-top to prevent content hiding under fixed nav -->
+        <!-- Profil Sekolah Section -->
         <section class="py-16 md:py-20 bg-white" id="profil">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 md:mb-16">
@@ -147,35 +155,7 @@
                     <div class="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                    <div class="p-6 md:p-8 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-red-100 p-3 rounded-full mr-4">
-                                <svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-900">Visi</h3>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed">Mewujudkan generasi taqwa, unggul, berwawasan lingkungan, dan berprofil pelajar Pancasila</p>
-                    </div>
-                    <div class="p-6 md:p-8 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-900">Misi</h3>
-                        </div>
-                        <ol class="list-decimal list-inside text-gray-600 space-y-2 leading-relaxed">
-                            <li>Menumbuhkan penghayatan dan pengamalan agama sehingga peserta didik menjadi tekun beribadah, jujur, disiplin, sportif, tanggung jawab, percaya diri, hormat pada orang tua, dan guru serta menyayangi sesama.</li>
-                            <li>Menumbuhkan semangat keunggulan secara intensif kepada seluruh warga sekolah.</li>
-                            <li>Melaksanakan pembelajaran dan bimbingan secara efektif sehingga peserta didik menguasi ketrampilan abad 21 dan berkembang secara optimal sebagai profil pelajar pancasila</li>
-                            <li>Mengembangkan budaya literasi dan rasa ingin tahu yang tinggi secara mandiri.</li>
-                            <li>Menumbuhkan budaya peduli lingkungan untuk melestarikan lingkungan.</li>
-                        </ol>
-                    </div>
-                    <div class="p-6 md:p-8 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <a class="p-6 md:p-8 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition transform hover:scale-105 block" href="sejarah-singkat.html">
                         <div class="flex items-center mb-4">
                             <div class="bg-yellow-100 p-3 rounded-full mr-4">
                                 <svg class="h-6 w-6 text-yellow-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -185,8 +165,8 @@
                             <h3 class="text-xl font-semibold text-gray-900">Sejarah Singkat</h3>
                         </div>
                         <p class="text-gray-600 leading-relaxed">SMAN 1 Malang didirikan pada 22 Agustus 1951, merupakan salah satu sekolah menengah tertua dan terkemuka di Malang. Sekolah ini dikenal dengan prestasi akademik dan non-akademiknya serta komitmennya pada nilai disiplin, kejujuran, dan keunggulan. Sebagai lembaga pendidikan unggulan, SMAN 1 Malang terus mencetak generasi berkualitas yang siap bersaing di tingkat nasional maupun global.</p>
-                    </div>
-                    <div class="p-6 md:p-8 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                    </a>
+                    <a class="p-6 md:p-8 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition transform hover:scale-105 block" href="sambutan-kepala-sekolah.html">
                         <div class="flex items-center mb-4">
                             <div class="bg-red-100 p-3 rounded-full mr-4">
                                 <svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -203,11 +183,50 @@
                             </div>
                         </div>
                         <p class="mt-4 text-gray-600 leading-relaxed">Dengan pengalaman 20+ tahun di dunia pendidikan, beliau membawa visi transformatif untuk membawa Mitreka Satata menjadi yang terdepan dalam inovasi pembelajaran.</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
-        <!-- Berita Sekolah -->
+
+        <!-- Visi dan Misi Section -->
+        <section class="py-16 md:py-20 bg-cream" id="visi-misi">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Visi dan Misi</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto rounded-full mb-12"></div>
+                <div class="space-y-8">
+                    <a class="block p-8 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:scale-105" href="visi-misi.html">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-gray-900">Visi</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Mewujudkan generasi taqwa, unggul, berwawasan lingkungan, dan berprofil pelajar Pancasila</p>
+                    </a>
+                    <a class="block p-8 bg-white rounded-xl shadow-md hover:shadow-lg transition transform hover:scale-105" href="visi-misi.html">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-gray-900">Misi</h3>
+                        </div>
+                        <ol class="list-decimal list-inside text-gray-600 space-y-2 leading-relaxed text-left">
+                            <li>Menumbuhkan penghayatan dan pengamalan agama sehingga peserta didik menjadi tekun beribadah, jujur, disiplin, sportif, tanggung jawab, percaya diri, hormat pada orang tua, dan guru serta menyayangi sesama.</li>
+                            <li>Menumbuhkan semangat keunggulan secara intensif kepada seluruh warga sekolah.</li>
+                            <li>Melaksanakan pembelajaran dan bimbingan secara efektif sehingga peserta didik menguasi ketrampilan abad 21 dan berkembang secara optimal sebagai profil pelajar pancasila</li>
+                            <li>Mengembangkan budaya literasi dan rasa ingin tahu yang tinggi secara mandiri.</li>
+                            <li>Menumbuhkan budaya peduli lingkungan untuk melestarikan lingkungan.</li>
+                        </ol>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Berita Terbaru Section -->
         <section class="py-16 md:py-20 bg-gray-50" id="berita">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -254,7 +273,8 @@
                 </div>
             </div>
         </section>
-        <!-- Ekstrakurikuler -->
+
+        <!-- Ekstrakurikuler Section -->
         <section class="py-16 md:py-20 bg-yellow-100" id="ekskul">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -296,11 +316,12 @@
                 </div>
             </div>
         </section>
-        <!-- Jumlah Siswa, Guru, dan Karyawan -->
+
+        <!-- Statistik Sekolah Section -->
         <section class="py-16 md:py-20 bg-white" id="jumlah">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Statistik Sekolah</h2>
-                <div class="w-20 h-1 bg-red-600 mx-auto rounded-full mb-12"></div>
+                <div class="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="p-6 bg-white rounded-lg shadow-md border-b-4 border-red-600">
                         <h3 class="text-2xl font-semibold text-red-600 mb-2">Jumlah Siswa</h3>
@@ -317,7 +338,8 @@
                 </div>
             </div>
         </section>
-        <!-- Galeri Sekolah -->
+
+        <!-- Galeri Sekolah Section -->
         <section class="py-16 md:py-20 bg-gray-50" id="galeri">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -349,7 +371,8 @@
                 </div>
             </div>
         </section>
-        <!-- Partner Kerjasama -->
+
+        <!-- Partner Kerjasama Section -->
         <section class="py-16 md:py-20 bg-yellow-100" id="partner">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Partner Kerjasama</h2>
@@ -363,6 +386,7 @@
             </div>
         </section>
     </main>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-12 pb-8">
         <div class="container mx-auto px-6">

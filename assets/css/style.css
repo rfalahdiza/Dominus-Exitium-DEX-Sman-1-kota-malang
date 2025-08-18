@@ -1,31 +1,73 @@
-/* Base Styles */
-body {
-    scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
-    color: #374151; /* Default text color, gray-800 */
-}
+/* MultipleFiles/style.css */
 
-/* Navigation Bar Transitions and Hover Effects */
 nav {
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    z-index: 50;
 }
 
-nav a {
-    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+/* Tambahkan class untuk nav saat discroll */
+nav.fixed-top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1E3ABA; /* blue-600 */
+    color: #fff;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    backdrop-filter: blur(8px);
 }
 
-nav a:hover {
-    color: #DC2626; /* Red-600 */
+nav.fixed-top-nav a {
+    color: #000000;
+    transition: color 0.3s, background-color 0.3s;
 }
 
+nav.fixed-top-nav a:hover {
+    color: #093492; /* blue-600 */
+    background-color: #fff; /* gray-100 */
+}
+
+nav a,
+.main-dropdown-menu a {
+    color: #374151;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+nav a:hover,
 .nav-link:hover {
-    color: #dc2626; /* red-600 */
-    background-color: #f3f4f6; /* gray-100 */
+    color: #093492;
+    background-color: #fff;
+}
+
+/* Pastikan dropdown text tetap gelap saat nav berubah warna */
+.megamenu-panel,
+.megamenu-panel a {
+    color: #1f2937; /* gray-800 */
+}
+
+.nav-sticky .megamenu-arrow {
+    background: #fff;
+}
+
+/* Dynamic padding for main */
+main {
+    padding-top: 0; /* Default padding */
+}
+
+body.has-sticky-nav main {
+    padding-top: var(--nav-height, 0px); /* Akan diatur oleh JS */
 }
 
 /* Header Buttons */
 .header-btn {
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-out;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .header-btn:hover {
@@ -33,192 +75,196 @@ nav a:hover {
 }
 
 /* Flexbox and Scroll Snap for Banner */
-.flex-none {
-    flex: none;
-}
+.flex-none { flex: none; }
+.snap-x { scroll-snap-type: x mandatory; }
+.snap-start { scroll-snap-align: start; }
 
-.snap-x {
-    scroll-snap-type: x mandatory;
-}
-
-.snap-start {
-    scroll-snap-align: start;
-}
-
-/* Hide scrollbar but keep functionality for horizontal scroll */
-.flex::-webkit-scrollbar {
-    display: none;
-}
-
+.flex::-webkit-scrollbar { display: none; }
 .flex {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
 }
-
-.flex img {
-    scroll-snap-align: start;
-}
+.flex img { scroll-snap-align: start; }
 
 /* Dropdown Menu Items */
 .w-60 {
-    width: 15rem; /* Tailwind w-60 = 240px */
-    min-width: 12rem; /* Ensure minimum width for content */
+    width: 15rem;
+    min-width: 12rem;
     height: auto;
 }
 
 /* Dropdown Menu Styling */
-/* Main dropdown */
-.group:hover > div.group-hover\:block {
-    display: block;
-    animation: fadeIn 0.2s ease-in-out forwards; /* Use forwards to keep final state */
-    opacity: 1; /* Ensure opacity is 1 after animation */
- display: block;
-    opacity: 1;
-    pointer-events: auto;
-\}
+.group { position: relative; }
 
-/* Nested dropdown */
+.group:hover > div.group-hover\:block,
 .group\/sub:hover > div.group-hover\/sub\:block {
     display: block;
-    animation: fadeIn 0.2s ease-in-out forwards; /* Use forwards to keep final state */
-    opacity: 1; /* Ensure opacity is 1 after animation */
- display: block;
+    animation: fadeIn 0.2s ease-in-out forwards;
     opacity: 1;
     pointer-events: auto;
-\}
+}
 
-/* Hide dropdown by default */
 .group-hover\:block,
 .group-hover\/sub\:block {
     display: none;
-    opacity: 0; /* Start with opacity 0 for fade-in effect */
-    pointer-events: none; /* Prevent interaction when hidden */
+    opacity: 0;
+    pointer-events: none;
 }
 
-/* New style for main dropdown positioning */
+/* Main dropdown positioning */
 .main-dropdown-menu {
     position: absolute;
-    top: calc(100% + 8px); /* appear clearly below the header/nav */
-    left: 0;               /* align to the left edge of the trigger */
-    transform: none;       /* avoid interfering with positioning */
+    top: calc(100% + 8px);
+    left: 0;
     min-width: 15rem;
+    color: #1f2937;
+    z-index: 100;
 }
 
-/* Fix for nested dropdown positioning */
-/* This targets the absolute positioned div directly inside group/sub.relative */
+/* Nested dropdown positioning */
 .group\/sub.relative > .absolute {
-    top: -8px; /* Adjust as needed for alignment */
+    top: -8px;
 }
 
 /* Keyframes for fadeIn */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Section Specific Styles */
 section {
-    padding-top: 4rem; /* py-16 */
-    padding-bottom: 4rem; /* py-16 */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
-@media (min-width: 768px) { /* md breakpoint */
+@media (min-width: 768px) {
     section {
-        padding-top: 5rem; /* md:py-20 */
-        padding-bottom: 5rem; /* md:py-20 */
+        padding-top: 5rem;
+        padding-bottom: 5rem;
     }
 }
 
 /* General Card Hover Effect */
 .shadow-md:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Larger shadow on hover */
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
 }
 
 /* Partner Logos Grayscale Effect */
-.filter.grayscale {
-    filter: grayscale(100%);
+.filter.grayscale { filter: grayscale(100%); }
+.filter.grayscale:hover { filter: grayscale(0%); }
+
+/* Megamenu Styles */
+.megamenu-panel {
+    position: fixed;
+    z-index: 9999;
+    display: none;
+    color: #1f2937;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 30px -10px rgba(0,0,0,.2);
+    background: #fff;
 }
 
-.filter.grayscale:hover {
-    filter: grayscale(0%);
-}
-
-
-/* Ensure dropdown text remains dark even when navbar toggles to text-white */
-.main-dropdown-menu,
-.main-dropdown-menu a { color: #1f2937; } /* gray-800 */
-
-/* Allow interactions when the dropdown is visible */
-.main-dropdown-menu {
-    position: absolute;
-    top: calc(100% + 8px); /* appear clearly below the header/nav */
-    left: 0;               /* align to the left edge of the trigger */
-    transform: none;       /* avoid interfering with positioning */
-    min-width: 15rem;
-}
-
-/* Ensure parent for dropdown provides positioning context */
-.group { position: relative; }
-
-
-/* Like a notification dropdown below trigger */
-  left: 0;                 /* Align to the trigger's left */
-  color: #1f2937;          /* gray-800 text */
-}
-
-/* Small arrow pointing to the trigger */
-.megamenu-arrow {
-  position: absolute;
-  top: -8px;
-  left: 24px;
-  width: 16px;
-  height: 16px;
-  background: white;
-  transform: rotate(45deg);
-  box-shadow: -1px -1px 0 0 rgba(0,0,0,0.05);
-}
-
-/* Show/Hide helpers */
-.megamenu-panel.hidden { display: none; }
 .megamenu-panel.open { display: block; }
+.megamenu-panel.hidden { display: none; }
+
+.megamenu-arrow {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    transform: rotate(45deg);
+    box-shadow: -1px -1px 0 0 rgba(0,0,0,0.05);
+    top: -8px;
+    left: 24px;
+}
 
 /* Responsive: full width on small screens */
 @media (max-width: 768px) {
-  .megamenu-panel {
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100vw - 2rem);
-  }
-  .megamenu-arrow { left: 50%; transform: translateX(-50%) rotate(45deg); }
+    .megamenu-panel {
+        left: 1rem !important;
+        width: calc(100vw - 2rem) !important;
+    }
+    .megamenu-arrow {
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+    }
 }
 
-
-/* === Megamenu Styles (notification-like, detached from header) === */
-.megamenu-panel {
-  position: fixed;           /* detach from header */
-  z-index: 9999;             /* always on top */
-  display: none;             /* hidden by default */
-  color: #1f2937;            /* gray-800 text */
+/* Tambahkan atau modifikasi aturan ini untuk megamenu-kegiatan-panel */
+#megamenu-kegiatan-panel {
+    width: auto; /* Mengatur lebar agar menyesuaikan konten */
+    min-width: 12rem; /* Memberikan lebar minimum agar tidak terlalu sempit */
+    max-width: 20rem; /* Batasi lebar maksimum jika diperlukan, sesuaikan dengan max-w-xs di HTML */
 }
 
-.megamenu-panel.open { display: block; }
-.megamenu-panel.hidden { display: none; }
-
-/* Small arrow pointing to trigger */
-.megamenu-arrow {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: white;
-  transform: rotate(45deg);
-  box-shadow: -1px -1px 0 0 rgba(0,0,0,0.05);
+/* Jika Anda ingin panah megamenu kegiatan juga menyesuaikan */
+#megamenu-kegiatan-panel .megamenu-arrow {
+    /* Anda bisa menyalin aturan dari .megamenu-arrow di atas jika perlu penyesuaian spesifik */
 }
 
-/* Panel look */
-.megamenu-panel { border-radius: 0.75rem; box-shadow: 0 20px 30px -10px rgba(0,0,0,.2); }
+/* --- Navbar (SMAN 3-style) --- */
+.dropdown-panel { z-index: 60; }
+.dd-item { display:block; padding: .5rem .75rem; border-radius:.5rem; }
+.dd-item:hover { background:#f3f4f6; }
 
-/* Responsive: cap width */
-@media (max-width: 768px) {
-  .megamenu-panel { width: calc(100vw - 2rem) !important; left: 1rem !important; }
+/* Center-logo grid: keep nav readable on solid bg */
+nav.fixed-top-nav { background-color:#1f2937 !important; color:#fff; }
+nav.fixed-top-nav .nav-link { color:#fff; }
+nav.fixed-top-nav .nav-link:hover { background-color:#111827; color:#fbbf24; }
+nav.fixed-top-nav .dd-item { color:#1f2937; } /* dropdown stays light */
+
+/* Mobile menu */
+#mobileMenu a.dd-item { padding:.375rem .75rem; }
+
+
+/* Sticky fixed navbar */
+nav.fixed-top-nav {
+  position: fixed !important;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background-color: #1f2937 !important; /* dark bg */
+  color: #fff;
+  transition: background-color .3s ease, box-shadow .3s ease;
 }
+nav.fixed-top-nav .nav-link { color:#fff; }
+nav.fixed-top-nav .nav-link:hover { color:#fbbf24; }
+
+
+/* --- Sticky fixed navbar --- */
+#mainNav {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+body { padding-top: 5rem; } /* to prevent content hiding under nav */
+
+
+/* --- Fix navbar: stays on top while scrolling --- */
+#mainNav{
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+/* push content so it doesn't hide behind fixed nav */
+:root{
+  --nav-height: 64px;
+}
+@media (min-width:768px){
+  :root{ --nav-height: 72px; }
+}
+body{
+  padding-top: var(--nav-height);
+}
+
+/* Make brand text not clickable */
+.brand-text{ pointer-events: none; }
+
+
+/* Custom background for alternating sections */
+.bg-cream{ background-color:#FFFDD0; }
