@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Login Admin</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+      flex-direction: column;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .login-box {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      border-radius: 12px;
+      width: 300px;
+      text-align: center;
+      color: white;
+      margin-top: 80px;
+      position: relative;
+    }
+
+    .login-box h2 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .error {
+      color: #ff4d4d;
+      margin-bottom: 15px;
+      font-size: 14px;
+      min-height: 20px; /* supaya ruang error tetap ada meski kosong */
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    Halaman Login Admin
+  </header>
+
+  <!-- Kotak Login -->
+  <div class="login-box">
+    <h2>Silakan Login</h2>
+    <div class="error" id="errorMsg"></div> <!-- pesan error tampil di sini -->
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+  // Daftar background (isi dengan fotomu)
+  const allImages = [
+    "../assets/img/school1.jpg",
+    "../assets/img/school2.jpg",
+    "../assets/img/school3.jpg"
+  ];
+  let images = [];
+  let index = 0;
+
+  // Fungsi cek gambar exist
+  function checkImage(url) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(url);
+      img.onerror = () => resolve(null);
+      img.src = url;
+    });
+  }
+
+  // Cek semua gambar, lalu jalankan background slider
+  Promise.all(allImages.map(checkImage)).then(results => {
+    images = results.filter(Boolean);
+    if (images.length === 0) {
+      // fallback jika tidak ada gambar valid
+      document.body.style.background = "#222";
+      return;
+    }
+    function changeBackground() {
+      document.body.style.backgroundImage = `url('${images[index]}')`;
+      index = (index + 1) % images.length;
+    }
+    changeBackground();
+    setInterval(changeBackground, 5000);
+  });
+
+  // Validasi login
+  const loginForm = document.getElementById("loginForm");
+  const errorMsg = document.getElementById("errorMsg");
+
+  // Data user benar
+  const validUser = "admin";
+  const validPass = "12345";
+
+  loginForm.addEventListener("submit", function(e) {
+    e.preventDefault(); // cegah reload
+
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value.trim();
+
+    if (user === validUser && pass === validPass) {
+      errorMsg.innerText = "";
+      alert("Login berhasil!");
+      window.location.href = "dashboard.html";
+    } else {
+      errorMsg.innerText = "❌ Username atau password salah!";
+    }
+  });
+</script>
+</body>
+</html>

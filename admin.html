@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Utama</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Layer background slideshow */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .slideshow div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow div.active {
+      opacity: 1;
+    }
+
+    /* Konten */
+    .content {
+      background: rgba(0,0,0,0.6);
+      padding: 30px 50px;
+      border-radius: 12px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #ff0000;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    a:hover {
+      background: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Slideshow Background -->
+  <div class="slideshow">
+    <div style="background-image: url('assets/img/school1.jpg')" class="active"></div>
+    <div style="background-image: url('assets/img/school2.jpg')"></div>
+    <div style="background-image: url('assets/img/school3.jpg')"></div>
+  </div>
+
+  <!-- Konten Halaman -->
+  <div class="content">
+    <h1>Selamat Datang di Website</h1>
+    <p>Ini halaman utama. Silakan masuk ke panel admin.</p>
+    <a href="admin/login.html">Login Admin</a>
+  </div>
+
+  <script>
+    // Script slideshow background
+    const slides = document.querySelectorAll('.slideshow div');
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 3000); // ganti foto tiap 5 detik
+  </script>
+</body>
+</html>

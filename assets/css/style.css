@@ -20,7 +20,7 @@ nav.fixed-top-nav {
     width: 100%;
     background-color: #1E3ABA; /* blue-600 */
     color: #fff;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
     backdrop-filter: blur(8px);
 }
 
@@ -205,6 +205,13 @@ section {
     /* Anda bisa menyalin aturan dari .megamenu-arrow di atas jika perlu penyesuaian spesifik */
 }
 
+/* Tambahkan atau modifikasi aturan ini untuk megamenu-budaya-positif-panel */
+#megamenu-budaya-positif-panel {
+    width: auto; /* Mengatur lebar agar menyesuaikan konten */
+    min-width: 12rem; /* Memberikan lebar minimum agar tidak terlalu sempit */
+    max-width: 20rem; /* Batasi lebar maksimum jika diperlukan, sesuaikan dengan max-w-xs di HTML */
+}
+
 /* --- Navbar (SMAN 3-style) --- */
 .dropdown-panel { z-index: 60; }
 .dd-item { display:block; padding: .5rem .75rem; border-radius:.5rem; }
@@ -268,3 +275,174 @@ body{
 
 /* Custom background for alternating sections */
 .bg-cream{ background-color:#FFFDD0; }
+
+
+/* Default hidden state for the form */
+.search-form-compact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 200px; /* Batasi lebar maksimum untuk tampilan desktop */
+    background-color: #fff; /* Background for the form when visible */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    transition: all 0.3s ease-in-out;
+    z-index: 55; /* Pastikan di atas elemen lain jika perlu */
+    /* Mengubah dari fixed menjadi absolute karena sekarang di dalam nav */
+    position: absolute;
+    top: 50%; /* Pusatkan vertikal */
+    right: 1rem; /* Jarak dari kanan nav */
+    transform: translateY(-50%); /* Sesuaikan posisi vertikal */
+}
+
+.search-form-compact.hidden {
+    display: none;
+}
+
+.search-form-compact input {
+    flex-grow: 1;
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid #d1d5db;
+    background-color: #fff;
+    color: #1f2937;
+    font-size: 0.875rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-form-compact input::placeholder {
+    color: #6b7280;
+}
+
+.search-form-compact input:focus {
+    outline: none;
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.5);
+}
+
+.search-form-compact button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background-color: #ef4444;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-form-compact button:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+}
+
+.search-form-compact button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Penyesuaian untuk nav.fixed-top-nav */
+nav.fixed-top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1f2937 !important; /* blue-600 atau dark bg */
+    color: #fff;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    backdrop-filter: blur(8px);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    z-index: 1000; /* Pastikan lebih tinggi dari z-index nav default */
+}
+
+nav.fixed-top-nav a {
+    color: #fff; /* Tautan di nav yang fixed */
+    transition: color 0.3s, background-color 0.3s;
+}
+
+nav.fixed-top-nav a:hover,
+nav.fixed-top-nav .nav-link:hover {
+    color: #fbbf24; /* Warna hover untuk tautan di nav yang fixed */
+    background-color: #111827; /* Background hover untuk tautan di nav yang fixed */
+}
+
+nav.fixed-top-nav .dd-item {
+    color: #1f2937; /* Dropdown item tetap gelap */
+}
+
+/* Media query untuk tampilan mobile jika diperlukan penyesuaian lebih lanjut */
+@media (max-width: 767px) {
+    .search-form-compact {
+        max-width: none;
+        margin-top: 1rem;
+        position: relative; /* Kembali ke relative untuk mobile agar tidak tumpang tindih */
+        top: auto;
+        right: auto;
+        transform: none;
+    }
+}
+
+
+/* Separate site search bar overrides */
+#site-search{ position: relative; z-index: 49; } /* below nav (50), above content */
+
+
+/* === Search Flyout (separate from nav) === */
+.search-flyout{
+  position: fixed;
+  top: calc(var(--nav-height,64px) + 8px);
+  right: 12px;
+  z-index: 60;
+}
+.search-flyout.hidden{ display:none; }
+
+
+/* Make site-search background transparent (remove box) */
+#site-search{
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Perbaikan: Tambahkan font-family untuk class font-francois-one */
+.font-francois-one {
+    font-family: 'Francois One', sans-serif;
+}
+.font-lexend { 
+    font-family: 'Lexend', sans-serif; 
+}
+
+/* Pastikan teks megamenu selalu kontras */
+.megamenu-panel h4,
+.megamenu-panel a {
+    color: #1f2937; /* selalu gelap agar terbaca di atas bg putih */
+}
+
+nav.fixed-top-nav .megamenu-panel h4,
+nav.fixed-top-nav .megamenu-panel a {
+    color: #111827; /* abu-abu tua */
+}
+
+.megamenu-panel a:hover {
+    background-color: #f3f4f6; /* abu muda */
+    color: #111827;
+}
+/* Hover, Focus, Active: teks jadi putih, background merah sekolah */
+.megamenu-panel a:hover,
+.megamenu-panel a:focus,
+.megamenu-panel a:active,
+.megamenu-panel a:focus-visible {
+  background-color: #111827 !important; /* merah (tailwind red-600) */
+  color: #ffffff !important;            /* teks putih */
+  outline: none;
+}
+
+/* Optional: state aktif permanen (misalnya halaman sedang dibuka) */
+.megamenu-panel a.active,
+.megamenu-panel a[aria-current="page"] {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+}

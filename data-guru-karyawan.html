@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Sejarah Singkat SMAN 1 Kota Malang</title>
+    <title>Data Guru dan Karyawan - SMAN 1 Kota Malang</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
     <link href="assets/css/style.css" rel="stylesheet"/>
@@ -16,9 +16,8 @@
     <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-sm shadow-md z-50 transition-all duration-300" id="mainNav">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <a aria-label="Beranda SMAN 1 Kota Malang" class="flex items-center" href="index.html"> <!-- Perbaikan: Arahkan ke index.html -->
+                <a aria-label="Beranda SMAN 1 Kota Malang" class="flex items-center" href="index.html">
                     <img alt="Logo Mitreka Satata" class="h-10 mr-2" src="assets/img/logo.png"/>
-                    <!-- Perbaikan: Tambahkan class font-francois-one -->
                     <span class="text-xl md:text-2xl font-francois-one bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">SMAN 1 Kota Malang</span>
                 </a>
             </div>
@@ -49,16 +48,16 @@
                             <div class="min-w-0">
                                 <h4 class="text-base font-semibold text-gray-900 mb-3">Elemen</h4>
                                 <ul class="space-y-2">
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#kepala-wakil-kepala">Kepala dan Wakil Kepala Sekolah</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#struktur-organisasi">Struktur Organisasi</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#data-guru-karyawan">Data Guru dan Karyawan</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="kepala-wakil-kepala.html">Kepala dan Wakil Kepala Sekolah</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="struktur-organisasi.html">Struktur Organisasi</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="data-guru-karyawan.html">Data Guru dan Karyawan</a></li>
                                 </ul>
                             </div>
                             <div class="min-w-0">
                                 <h4 class="text-base font-semibold text-gray-900 mb-3">Akademik</h4>
                                 <ul class="space-y-2">
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#prestasi">Prestasi</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#peraturan-akademik">Peraturan Akademik</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="prestasi.html">Prestasi</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="peraturan-akademik.html">Peraturan Akademik</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -103,7 +102,7 @@
                                 <h4 class="text-base font-semibold text-gray-900 mb-3">Budaya Positif</h4>
                                 <ul class="space-y-2">
                                     <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="peraturan-tata-tertib.html">Peraturan Tata Tertib</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#cek-pelanggaran-siswa.html">Cek Pelanggaran Siswa</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="cek-pelanggaran-siswa.html">Cek Pelanggaran Siswa</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -118,7 +117,6 @@
                     </svg>
                 </button>
                 <!-- Search Form (Dipindahkan ke dalam nav, di samping tombol search icon) -->
-                <!-- Perbaikan: Tambahkan class 'hidden' secara default -->
                 <form action="#" class="search-form-compact hidden" method="GET" role="search" id="search-form">
                     <label class="sr-only" for="search-input">Cari...</label>
                     <input id="search-input" name="search" placeholder="Cari..." type="text"/>
@@ -131,71 +129,108 @@
             </button>
         </div>
     </nav>
+
     <main class="py-16 md:py-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 md:mb-16">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sejarah Singkat SMAN 1 Kota Malang</h1>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Data Guru dan Karyawan</h1>
                 <div class="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
             </div>
 
             <div class="bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-4xl mx-auto">
-                <div class="text-gray-700 leading-relaxed space-y-4">
-                    <p>
-                        Pada tahun 1950, gedung SMA Negeri di Jalan Alun-alun Bundar No. 1 ditempati oleh tiga sekolah, yaitu:
-                    </p>
-                    <ul class="list-disc list-inside ml-4 space-y-2">
-                        <li>SMA Negeri pimpinan Bapak G.B Pasariboe, yang dikenal sebagai “SMA Republik”.</li>
-                        <li>SMA Negeri pimpinan Bapak Poerwandi.</li>
-                        <li>SMA Peralihan pimpinan Bapak Desman, yang muridnya terdiri dari pejuang TRIP dan Kesatuan Tentara Pelajar lainnya.</li>
-                    </ul>
+                <div class="text-gray-700 leading-relaxed space-y-8">
+                    <p class="text-center text-lg mb-8">Berikut adalah daftar guru dan karyawan SMAN 1 Kota Malang.</p>
 
-                    <p class="mt-4">
-                        Pada hari Jum’at, 8 Agustus 1952, murid-murid jurusan B (Ilmu Pasti) dari SMA Republik dipindahkan dan dijadikan sekolah baru dengan pimpinan Bapak G.B Pasariboe. Sehingga nama SMA yang ada di Alun-alun Bundar menjadi:
-                    </p>
-                    <ul class="list-disc list-inside ml-4 space-y-2">
-                        <li>SMA Negeri I-A/C, pimpinan Bapak G.B Pasariboe.</li>
-                        <li>SMA Negeri II-B, pimpinan Bapak Poerwadi.</li>
-                        <li>SMA Negeri III-B, pimpinan Bapak Oesman.</li>
-                    </ul>
+                    <!-- Guru Section -->
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Daftar Guru</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Contoh Data Guru 1 -->
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/80x80?text=Guru1" alt="Foto Guru 1" class="w-20 h-20 rounded-full object-cover border-2 border-blue-400">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Dra. Siti Aminah, M.Pd.</h3>
+                                <p class="text-sm text-gray-600">Mata Pelajaran: Bahasa Indonesia</p>
+                                <p class="text-sm text-gray-600">NIP: 197501012000012001</p>
+                            </div>
+                        </div>
+                        <!-- Contoh Data Guru 2 -->
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/80x80?text=Guru2" alt="Foto Guru 2" class="w-20 h-20 rounded-full object-cover border-2 border-blue-400">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Budi Santoso, S.Pd.</h3>
+                                <p class="text-sm text-gray-600">Mata Pelajaran: Matematika</p>
+                                <p class="text-sm text-gray-600">NIP: 198005152005021003</p>
+                            </div>
+                        </div>
+                        <!-- Contoh Data Guru 3 -->
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/80x80?text=Guru3" alt="Foto Guru 3" class="w-20 h-20 rounded-full object-cover border-2 border-blue-400">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Dr. Rina Wijayanti</h3>
+                                <p class="text-sm text-gray-600">Mata Pelajaran: Fisika</p>
+                                <p class="text-sm text-gray-600">NIP: 197803202003012005</p>
+                            </div>
+                        </div>
+                        <!-- Contoh Data Guru 4 -->
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/80x80?text=Guru4" alt="Foto Guru 4" class="w-20 h-20 rounded-full object-cover border-2 border-blue-400">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Agus Setiawan, S.Kom.</h3>
+                                <p class="text-sm text-gray-600">Mata Pelajaran: Informatika</p>
+                                <p class="text-sm text-gray-600">NIP: 198507222010011007</p>
+                            </div>
+                        </div>
+                        <!-- Contoh Data Guru 5 -->
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/80x80?text=Guru5" alt="Foto Guru 5" class="w-20 h-20 rounded-full object-cover border-2 border-blue-400">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Dewi Lestari, S.Pd.</h3>
+                                <p class="text-sm text-gray-600">Mata Pelajaran: Seni Budaya</p>
+                                <p class="text-sm text-gray-600">NIP: 198209102008012009</p>
+                            </div>
+                        </div>
+                        <!-- Contoh Data Guru 6 -->
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/80x80?text=Guru6" alt="Foto Guru 6" class="w-20 h-20 rounded-full object-cover border-2 border-blue-400">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Hendra Kusuma, S.Or.</h3>
+                                <p class="text-sm text-gray-600">Mata Pelajaran: PJOK</p>
+                                <p class="text-sm text-gray-600">NIP: 198311052009011011</p>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p class="mt-4">
-                        SMA Peralihan ditutup pada tahun 1954 karena semua murid pemuda pejuang telah lulus. Pada hari Selasa, 16 September 1958, SMA Negeri I-A/C dipecah menjadi dua, melahirkan SMA IV-A/C, dengan pimpinan Bapak Goenadi. Lokasinya berada di Jalan Kota Lama 34 Malang, yang sekarang menjadi SMA Negeri 2.
-                    </p>
-
-                    <p class="mt-4">
-                        Pada hari Jum’at, 1 April 1977, filial SMA Negeri Kepanjen diresmikan sebagai SMA Negeri Kepanjen dengan Kepala Sekolah Bapak Drs. M. Moenawar.
-                    </p>
-
-                    <p class="mt-4">
-                        SMA Negeri III membina sekolah baru yang akhirnya menjadi SMA Negeri V Malang, dengan Kepala Sekolah pertama Bapak Moch. Imam. Tahun 1975, SMA Negeri III juga membuka filial di Lawang yang kemudian menjadi SMA Negeri Lawang. SMA Negeri IV membina SMA Batu, yang pada tahun 1978 diresmikan sebagai SMA Negeri dengan Kepala Sekolah pertama Drs. Moch. Chotib.
-                    </p>
-
-                    <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-2">Daftar Kepala Sekolah SMAN 1 Malang:</h3>
-                    <ul class="list-disc list-inside ml-4 space-y-2">
-                        <li>Sardoe Atmodjo, perintis SMA Negeri 1, 1947-1950</li>
-                        <li>G.B Pasariboe, Kepala Sekolah ke-1, 1950-1952</li>
-                        <li>A. Dzaman Hasibuan, Kepala sekolah ke-2, 1953-1965</li>
-                        <li>Sikin, Kepala sekolah ke-3, 1965-1971</li>
-                        <li>Drs. Abdul Kadir, Kepala sekolah ke-4, 1971-1981</li>
-                        <li>Soewardjo, PLH Kepala sekolah, 1981-1984</li>
-                        <li>Abdul Rachman, Kepala sekolah ke-5, 1981-1986</li>
-                        <li>Drs. H. Moch. Chotib, Kepala sekolah ke-6, 1986-1991</li>
-                        <li>Abdul Syukur, BA, PLH, Kepala sekolah, 1991</li>
-                        <li>Soenardjadi, BA, Kepala sekolah ke-7, 1991-1993</li>
-                        <li>Munadjad, Kepala sekolah ke-8, 1993-1998</li>
-                        <li>Drs. H. Sagi Siswanto, Kepala sekolah ke-9, 1998-2004</li>
-                        <li>Moch. Nor Salim, M.Pd, PLH, Kepala sekolah, 2004</li>
-                        <li>Drs. H. Tri Suharno, Kepala sekolah ke-10, 2004-2005</li>
-                        <li>Drs. H. Moh. Sulthon, M.Pd, Kepala sekolah ke-11, 2005-2011</li>
-                        <li>Bpk. Drs. Budi Harsono, Kepala sekolah ke-12, 2011-2012</li>
-                        <li>Drs. Supriyono, M.Si., Kepala sekolah ke-13, 2012-2014</li>
-                        <li>H. Musoddaqul Umam, S.Pd, M.Si., Kepala Sekolah Ke-14, 2014-2019</li>
-                        <li>Drs. Heru Wahyudi, M.Pd., Kepala Sekolah Ke-15, 2019 sampai sekarang.</li>
-                    </ul>
-
-                    <p class="mt-4">
-                        Demikian paparan sejarah singkat berdirinya SMA Negeri 1 Malang, yang juga mengungkapkan kelahiran sekolah lain yang berhubungan, sehingga kita tahu bahwa SMA-SMA Negeri di Malang ini kebanyakan adalah saudara pada mulanya, sehingga wajar jika langkah-langkah selanjutnya akan diisi dengan hal-hal yang mengarah kepada adanya kerjasama guna memupuk rasa persatuan menuju terciptanya kemajuan bersama.
-                    </p>
+                    <!-- Karyawan Section -->
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-12 border-b-2 border-green-600 pb-2">Daftar Karyawan</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Contoh Data Karyawan 1 -->
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/80x80?text=Karyawan1" alt="Foto Karyawan 1" class="w-20 h-20 rounded-full object-cover border-2 border-green-400">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Joko Susilo</h3>
+                                <p class="text-sm text-gray-600">Jabatan: Tata Usaha</p>
+                                <p class="text-sm text-gray-600">NIP: 197002021995031001</p>
+                            </div>
+                        </div>
+                        <!-- Contoh Data Karyawan 2 -->
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/80x80?text=Karyawan2" alt="Foto Karyawan 2" class="w-20 h-20 rounded-full object-cover border-2 border-green-400">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Maria Ulfa</h3>
+                                <p class="text-sm text-gray-600">Jabatan: Pustakawan</p>
+                                <p class="text-sm text-gray-600">NIP: 198804042012012002</p>
+                            </div>
+                        </div>
+                        <!-- Contoh Data Karyawan 3 -->
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/80x80?text=Karyawan3" alt="Foto Karyawan 3" class="w-20 h-20 rounded-full object-cover border-2 border-green-400">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Slamet Riyadi</h3>
+                                <p class="text-sm text-gray-600">Jabatan: Tenaga Kebersihan</p>
+                                <p class="text-sm text-gray-600">NIP: 196506061990011003</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

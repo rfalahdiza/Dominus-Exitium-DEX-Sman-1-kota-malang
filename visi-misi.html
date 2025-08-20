@@ -9,20 +9,22 @@
     <link href="assets/css/style.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
     <link href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;family=Francois+One&amp;display=swap" rel="stylesheet"/>
 </head>
 <body class="font-poppins bg-gray-100 text-gray-800">
     <!-- Navigation -->
-    <nav class="sticky top-0 bg-white/80 backdrop-blur-sm shadow-md z-50 transition-all duration-300" id="mainNav">
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-sm shadow-md z-50 transition-all duration-300" id="mainNav">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <a aria-label="Beranda SMAN 1 Kota Malang" class="flex items-center" href="index.html">
+                <a aria-label="Beranda SMAN 1 Kota Malang" class="flex items-center" href="index.html"> <!-- Perbaikan: Arahkan ke index.html -->
                     <img alt="Logo Mitreka Satata" class="h-10 mr-2" src="assets/img/logo.png"/>
-                    <span class="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">SMAN 1 Kota Malang</span>
+                    <!-- Perbaikan: Tambahkan class font-francois-one -->
+                    <span class="text-xl md:text-2xl font-francois-one bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">SMAN 1 Kota Malang</span>
                 </a>
             </div>
             <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
                 <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="index.html">Beranda</a>
-                <!-- Pastikan elemen induk dropdown memiliki posisi relative -->
+                <!-- About Us Dropdown (Megamenu) -->
                 <div class="group relative">
                     <button aria-controls="megamenu-panel" aria-expanded="false" aria-haspopup="true" class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 flex items-center focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" id="megamenu-trigger" type="button">
                         Tentang Kami
@@ -45,62 +47,84 @@
                                 </ul>
                             </div>
                             <div class="min-w-0">
-                                <h4 class="text-base font-semibold text-gray-900 mb-3">Manajemen</h4>
-                                <ul class="space-y-2">
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#kurikulum">Kurikulum</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#kesiswaan">Kesiswaan</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#sarana-prasarana">Sarana dan Prasarana</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#humas">Humas</a></li>
-                                </ul>
-                            </div>
-                            <div class="min-w-0">
                                 <h4 class="text-base font-semibold text-gray-900 mb-3">Elemen</h4>
                                 <ul class="space-y-2">
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#kepala-wakil-kepala">Kepala dan Wakil Kepala Sekolah</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#struktur-organisasi">Struktur Organisasi</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#data-guru-karyawan">Data Guru dan Karyawan</a></li>
-                                </ul>
-                            </div>
-                            <div class="min-w-0">
-                                <h4 class="text-base font-semibold text-gray-900 mb-3">Budaya Positif</h4>
-                                <ul class="space-y-2">
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#peraturan-tata tertib">Peraturan Tata Tertib</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#cek-pelanggaran-siswa">Cek Pelanggaran Siswa</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#kepala-wakil-kepala">Kepala dan Wakil Kepala Sekolah</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#struktur-organisasi">Struktur Organisasi</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#data-guru-karyawan">Data Guru dan Karyawan</a></li>
                                 </ul>
                             </div>
                             <div class="min-w-0">
                                 <h4 class="text-base font-semibold text-gray-900 mb-3">Akademik</h4>
                                 <ul class="space-y-2">
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#prestasi">Prestasi</a></li>
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#peraturan-akademik">Peraturan Akademik</a></li>
-                                </ul>
-                            </div>
-                            <div class="min-w-0">
-                                <h4 class="text-base font-semibold text-gray-900 mb-3">Perpustakaan</h4>
-                                <ul class="space-y-2">
-                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="index.html#mitreka-baca">Mitreka Baca</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#prestasi">Prestasi</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#peraturan-akademik">Peraturan Akademik</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="index.html#berita">Berita</a>
-                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="index.html#ekskul">Ekstrakurikuler</a>
-                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="index.html#galeri">Galeri</a>
-            </div>
-            <div class="hidden md:block">
-                <!-- Search Form -->
-                <form action="#" class="relative" method="GET" role="search">
-                    <label class="sr-only" for="search-input">Cari...</label>
-                    <input class="pl-4 pr-10 py-2 rounded-lg bg-white text-gray-800 placeholder-gray-400 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200" id="search-input" name="search" placeholder="Cari..." type="text"/>
-                    <button aria-label="Tombol Pencarian" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 rounded-full p-1" type="submit">
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="#berita">Berita</a>
+                <!-- Kegiatan Dropdown (Megamenu) -->
+                <div class="group relative">
+                    <button aria-controls="megamenu-kegiatan-panel" aria-expanded="false" aria-haspopup="true" class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 flex items-center focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" id="megamenu-kegiatan-trigger" type="button">
+                        Kegiatan
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                         </svg>
                     </button>
+                    <div class="megamenu-panel hidden absolute mt-2 w-full max-w-xs bg-white rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 z-[60]" id="megamenu-kegiatan-panel">
+                        <div class="megamenu-arrow"></div>
+                        <div class="grid grid-cols-1 gap-6 p-6 md:p-8 text-gray-800">
+                            <div class="min-w-0">
+                                <h4 class="text-base font-semibold text-gray-900 mb-3">Program & Acara</h4>
+                                <ul class="space-y-2">
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#ekskul">Ekstrakurikuler</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#event">Event</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#">Agenda Tahunan</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" href="#kalender">Kalender</a>
+                <!-- Budaya Positif Dropdown (Megamenu) -->
+                <div class="group relative">
+                    <button aria-controls="megamenu-budaya-positif-panel" aria-expanded="false" aria-haspopup="true" class="nav-link text-gray-900 hover:text-red-600 font-medium transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-gray-100 flex items-center focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75" id="megamenu-budaya-positif-trigger" type="button">
+                        Budaya Positif
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </button>
+                    <div class="megamenu-panel hidden absolute mt-2 w-full max-w-xs bg-white rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 z-[60]" id="megamenu-budaya-positif-panel">
+                        <div class="megamenu-arrow"></div>
+                        <div class="grid grid-cols-1 gap-6 p-6 md:p-8 text-gray-800">
+                            <div class="min-w-0">
+                                <h4 class="text-base font-semibold text-gray-900 mb-3">Budaya Positif</h4>
+                                <ul class="space-y-2">
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="peraturan-tata-tertib.html">Peraturan Tata Tertib</a></li>
+                                    <li><a class="block px-3 py-2 rounded-md hover:bg-gray-100" href="#cek-pelanggaran-siswa.html">Cek Pelanggaran Siswa</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tombol search icon trigger tetap di dalam nav -->
+            <div class="flex items-center space-x-4">
+                <button aria-label="Buka Pencarian" class="text-gray-900 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 rounded-full p-2 transition-colors duration-300" id="search-icon-trigger">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </button>
+                <!-- Search Form (Dipindahkan ke dalam nav, di samping tombol search icon) -->
+                <!-- Perbaikan: Tambahkan class 'hidden' secara default -->
+                <form action="#" class="search-form-compact hidden" method="GET" role="search" id="search-form">
+                    <label class="sr-only" for="search-input">Cari...</label>
+                    <input id="search-input" name="search" placeholder="Cari..." type="text"/>
                 </form>
             </div>
-            <button aria-label="Buka Menu Navigasi" class="md:hidden text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75 rounded-md p-1">
+            <button aria-label="Buka Menu Navigasi" class="md:hidden text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 rounded-md p-1">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                 </svg>

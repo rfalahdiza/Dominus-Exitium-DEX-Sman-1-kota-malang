@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <h2>Dashboard Admin</h2>
+  <a href="login.html">Logout</a>
+
+  <h3>Update Informasi Website</h3>
+  <form id="infoForm">
+    <label>Judul Website:</label>
+    <input type="text" id="siteTitle" placeholder="Masukkan judul">
+
+    <label>Deskripsi Website:</label>
+    <textarea id="siteDesc" placeholder="Masukkan deskripsi"></textarea>
+
+    <label>Upload Foto:</label>
+    <input type="file" id="siteImage" accept="image/*">
+
+    <button type="submit">Simpan Perubahan</button>
+  </form>
+
+  <h3>Preview Website User</h3>
+  <div id="preview" class="preview-box">
+    <h1 id="previewTitle">Judul Default</h1>
+    <p id="previewDesc">Deskripsi default website user.</p>
+    <img id="previewImg" src="https://via.placeholder.com/400x200" alt="Preview" style="max-width:400px; margin-top:10px;">
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
